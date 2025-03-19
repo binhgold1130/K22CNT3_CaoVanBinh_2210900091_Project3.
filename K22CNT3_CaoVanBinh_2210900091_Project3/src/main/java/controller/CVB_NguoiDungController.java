@@ -134,4 +134,40 @@ public class CVB_NguoiDungController {
             return "redirect:/login";
         }
     }
+
+    // Hiển thị form đăng ký
+    @GetMapping("/dangky")
+    public String showDangKyForm() {
+        return "khachhang/dangky";
+    }
+
+    // Xử lý đăng ký người dùng
+    @PostMapping("/dangky")
+    public String dangKyNguoiDung(CVB_NguoiDung nguoiDung, @RequestParam("confirmPassword") String confirmPassword, Model model, HttpSession session) {
+        System.out.println("dangKyNguoiDung() được gọi."); // Kiểm tra phương thức được gọi
+
+        // Kiểm tra email đã tồn tại
+        if (nguoiDungDAO.getNguoiDungByEmail(nguoiDung.getEmail()) != null) {
+            System.out.println("Email đã tồn tại."); // Kiểm tra email tồn tại
+            model.addAttribute("error", "Email đã tồn tại.");
+            return "khachhang/dangky";
+        }
+
+        // Kiểm tra mật khẩu và xác nhận mật khẩu
+        if (!nguoiDung.getPassword().equals(confirmPassword)) {
+            System.out.println("Mật khẩu không trùng khớp."); // Kiểm tra mật khẩu
+            model.addAttribute("error", "Mật khẩu và xác nhận mật khẩu không trùng khớp.");
+            return "khachhang/dangky";
+        }
+
+        // Tạo người dùng mới
+        nguoiDung.setVaiTro(KHACHHANG_ROLE); // Gán vai trò khách hàng
+        nguoiDungDAO.insertNguoiDung(nguoiDung);
+        System.out.println("Người dùng đã được thêm."); // Kiểm tra thêm người dùng
+
+        // Tự động đăng nhập (nếu cần)
+        session.setAttribute("nguoiDung", nguoiDung);
+
+        return "redirect:/khachhangdashboard"; // Chuyển hướng đến trang dashboard khách hàng
+    }
 }

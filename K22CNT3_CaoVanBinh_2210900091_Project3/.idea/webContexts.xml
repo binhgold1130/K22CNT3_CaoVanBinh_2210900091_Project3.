@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/AdminDashboard.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chisodien/chisodien_add.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chisodien" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chisodien/chisodien_list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chisodien" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/hoadon/hoadon_list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/hoadon" />
+      </map>
+    </option>
+  </component>
+</project>

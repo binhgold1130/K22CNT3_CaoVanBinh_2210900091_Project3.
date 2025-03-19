@@ -79,6 +79,7 @@
         <!-- Liên kết bổ sung -->
         <div class="mt-3 text-center">
             <a href="#" class="text-muted">Quên mật khẩu?</a> |
+            <a href="#" class="text-muted">Đăng ký</a>
         </div>
     </div>
 </div>
